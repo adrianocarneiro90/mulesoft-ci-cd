@@ -1,6 +1,6 @@
 brasilapi:
   protocol: 'HTTPS'
-  host: 'brasilapi.com.br'
+  host: ''
   port: '443'
   basePatch: '/api'
   path:

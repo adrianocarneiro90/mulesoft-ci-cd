@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="37ff758a-ff62-420d-8746-04286bcf2794" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration_brasilapi" doc:name="HTTP Request configuration" doc:id="82fd8e48-a30a-44e4-91a0-ee264b242e0e" basePath="${brasilapi.basePatch}" >
+		<http:request-connection protocol="${brasilapi.protocol}" host="${brasilapi.host}" port="${brasilapi.port}" />
+	</http:request-config>
+	<global-property doc:name="Global Property" doc:id="313ecf75-ae64-494f-9027-e53af9bbed9a" name="mule.env" value="dev" />
+	<configuration-properties doc:name="Configuration properties" doc:id="ff967b7f-0a75-4e47-94b1-22c0c5da5fad" file="${mule.env}.yaml" />
+</mule>

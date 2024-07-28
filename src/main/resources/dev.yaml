@@ -1,0 +1,7 @@
+brasilapi:
+  protocol: 'HTTPS'
+  host: 'brasilapi.com.br'
+  port: '443'
+  basePatch: '/api'
+  path:
+    cep: '/cep/v2/{cep}'

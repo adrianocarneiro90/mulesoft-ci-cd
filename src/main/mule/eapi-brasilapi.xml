@@ -121,32 +121,11 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\cep\(cep):eapi-brasilapi-config">
-        <ee:transform doc:name="Transform Message">
+        <ee:transform doc:name="cep">
             <ee:variables>
                 <ee:set-variable variableName="cep">attributes.uriParams.'cep'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-        <ee:transform doc:name="Transform Message">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  cep: "90840110",
-  state: "RS",
-  city: "Porto Alegre",
-  neighborhood: "Santa Tereza",
-  street: "Rua Hipólito da Costa",
-  service: "open-cep",
-  location: {
-    "type": "Point",
-    coordinates: {
-      longitude: "-51.2281817",
-      latitude: "-30.069228"
-    }
-  }
-} as Object {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<flow-ref doc:name="get-cep-v2" doc:id="7237f092-1f55-4bcf-b456-a126e4895c49" name="get-cep-v2"/>
     </flow>
 </mule>
